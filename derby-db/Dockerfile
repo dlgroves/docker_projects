@@ -1,8 +1,13 @@
+# Provision a container running a Derby database
+
 FROM ubuntu:16.04
 MAINTAINER Douglas Groves <douglas.groves.dev@gmail.com>
 RUN apt-get clean \
 	&& apt-get update \
-	&& apt-get install -y openjdk-8-jdk wget curl \
+	&& apt-get install -y \
+		openjdk-8-jdk \
+		wget \
+		curl \
 	&& groupadd -r derby \
 	&& useradd -s /usr/sbin/nologin -g derby -d /home/derby derby \
 	&& wget http://mirror.ox.ac.uk/sites/rsync.apache.org/db/derby/db-derby-10.12.1.1/db-derby-10.12.1.1-bin.tar.gz -P /opt/db \
